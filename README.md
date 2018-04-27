@@ -39,7 +39,7 @@ python accentuate_connected_text.py <path_to_input_file> <path_to_results_file> 
 ```
 You can try working example with your actual path to reldi:
 ```
-python accentuate_connected_text.py 'test_data/original_connected_text' 'test_data/accented_connected_text' '../reldi_tagger'
+python accentuate_connected_text.py 'test_data/original_connected_text' 'test_data/accented_connected_text' '../reldi-tagger'
 ```
 
 # learn_location_weights.py
