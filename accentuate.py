@@ -53,7 +53,7 @@ location_accented_words, accented_words = data.accentuate_word(content, letter_l
                                     multext_v3=True)
 
 # save accentuated words
-with open(write_location, 'w') as f:
+with open(write_location, 'w', encoding='utf-8') as f:
     for i in range(len(location_accented_words)):
         f.write(location_accented_words[i] + '  ' + accented_words[i] + '\n')
     f.write('\n')

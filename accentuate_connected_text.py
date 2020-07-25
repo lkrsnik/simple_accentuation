@@ -66,5 +66,5 @@ type_predictions = data.get_ensemble_type_predictions(tagged_words, location_y, 
 accented_text = data.create_connected_text_accented(tagged_words, original_text, type_predictions, location_y, vowels, accented_vowels)
 
 # save accentuated text
-with open(write_location, 'w') as f:
+with open(write_location, 'w', encoding='utf-8') as f:
     f.write(accented_text)

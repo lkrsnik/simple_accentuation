@@ -1330,7 +1330,7 @@ class Data:
 
     def tag_words(self, reldi_location, original_location):
         # generates text with every word in new line
-        with open(original_location) as f:
+        with open(original_location, encoding='utf-8') as f:
             original_text = f.readlines()
         original_text = ''.join(original_text)
         # print(original_text)
@@ -1341,22 +1341,22 @@ class Data:
         text_with_whitespaces = '\n'.join(text_with_whitespaces.split())
         text_with_whitespaces += '\n\n'
         # print(text_with_whitespaces)
-        with open('.words_with_whitespaces', "w") as text_file:
+        with open('.words_with_whitespaces', "w", encoding='utf-8') as text_file:
             text_file.write(text_with_whitespaces)
 
         # generates text with PoS tags
         import subprocess
 
-        myinput = open('.words_with_whitespaces', 'r')
-        myoutput = open('.word_tags', 'w')
+        myinput = open('.words_with_whitespaces', 'r', encoding='utf-8')
+        myoutput = open('.word_tags', 'w', encoding='utf-8')
         # print(myinput.readlines())
-        python3_command = reldi_location + "/tagger.py sl"  # launch your python2 script using bash
+        python3_command = 'python ' + reldi_location + "/tagger.py sl"  # launch your python2 script using bash
 
         process = subprocess.run(python3_command.split(), stdin=myinput, stdout=myoutput)
 
         # generates interesting words
         pointless_words = ['.', ',', '\"', ':', '-']
-        with open('.word_tags', "r") as text_file:
+        with open('.word_tags', "r", encoding='utf-8') as text_file:
             tagged_input_words = []
             for x in text_file.readlines()[:-1]:
                 splited_line = x[:-1].split('\t')
